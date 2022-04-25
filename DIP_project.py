@@ -35,3 +35,11 @@ model.summary()
 
 print(model.fit(X_train, y_train, epochs=1, batch_size=1))
 
+plt.imshow(X_test[0])
+test = X_test[0].reshape(-1,28,28,1)
+prediction =model.predict(test)
+classes_x = np.argmax(prediction,axis=1)
+print(classes_x)
+plt.show()
+
+model.save('mytrainedmodel.h5')
